@@ -1,0 +1,22 @@
+{
+  "name": "automation-cypress-framework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/burgos03/Automation-Cypress-Framework.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/burgos03/Automation-Cypress-Framework/issues"
+  },
+  "homepage": "https://github.com/burgos03/Automation-Cypress-Framework#readme",
+  "devDependencies": {
+    "cypress": "^4.9.0"
+  }
+}
