@@ -73,7 +73,7 @@ describe('Test cases main page', () => {
             .verifyTitle();
     });
 
-    it.only('AP-33: Verify that when you click on the "SUMMER DRESSES" button you go to the Summer Dresses page', () => {
+    it('AP-33: Verify that when you click on the "SUMMER DRESSES" button you go to the Summer Dresses page', () => {
         HomePage
             .visit()
             .headerComponent
@@ -82,5 +82,28 @@ describe('Test cases main page', () => {
 
             .summerDressesPage
             .verifyTitle();            
+    });
+
+    it.only('AP-37: Verify that it is possible to type words into the search box.', () => {
+        const text = 'T-shirt'
+        
+        HomePage
+            .visit()
+            .headerComponent
+            .typeSearchBox(text)
+            .verifySearchBoxText(text);
+    });
+
+    it.only('AP-38: Verify that when you enter a keyword "e.g.: Dress" it will display all the results related to the keyword.', () => {
+        const text = 'Dress'; 
+
+        HomePage
+            .visit()
+            .headerComponent
+            .typeSearchBox(text)
+            .clickSearchButton()
+
+            .dressPage
+            .verifyTitle();
     });
 });

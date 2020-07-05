@@ -6,3 +6,4 @@ export { default as WomenPage } from './women.page';
 export { default as CasualDressesPage } from './casualDresses.page';
 export { default as EveningDressesPage } from './eveningDresses.page';
 export { default as SummerDressesPage } from './summerDresses.page';
+export { default as DressPage } from './dresses.page';

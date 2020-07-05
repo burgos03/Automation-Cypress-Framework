@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-import { HomePage, ContactUsPage, AuthenticationPage, WomenPage, CasualDressesPage, EveningDressesPage, SummerDressesPage } from "../pages";
+import { HomePage, ContactUsPage, AuthenticationPage, WomenPage, CasualDressesPage, EveningDressesPage, SummerDressesPage, DressPage } from "../pages";
 import { BaseComponent } from ".";
 import { Logger } from "../utils";
 
@@ -12,6 +12,8 @@ export default class HeaderComponent extends BaseComponent {
         this._logoLink = "div#header_logo";
         this._womenButton = "#block_top_menu a[title='Women']";
         this._dressesButton = 'div#block_top_menu > ul > li:nth-child(2)';
+        this._searchBox = 'div#search_block_top >form >input#search_query_top';
+        this._searchButton = 'form#searchbox >button';
     }
 
     clickContactUsLink() {
@@ -69,6 +71,24 @@ export default class HeaderComponent extends BaseComponent {
         this.find(this._dressesButton + "> ul  >li:nth-child(3)").click();
         return new GoTo();
     }
+
+    typeSearchBox(text){
+        Logger.instance.addStep(`Type [${text}] in [Search Box].`);
+        this.find(this._searchBox).type(text);
+        return this;
+    }
+
+    clickSearchButton() {
+        Logger.instance.addStep(`Click on [Search] Button.`);
+        this.find(this._searchButton).click();
+        return new GoTo();
+    }
+
+    verifySearchBoxText(text) {
+        Logger.instance.addPassStep(`Verify that the [${text}] is present into [Search Box].`);
+        this.find(this._searchBox).should('have.value', text);
+        return this;
+    }  
 }
 
 class GoTo{
@@ -98,5 +118,9 @@ class GoTo{
 
     get summerDressesPage(){
         return new SummerDressesPage();
+    }
+
+    get dressPage(){
+        return new DressPage();
     }
 }
