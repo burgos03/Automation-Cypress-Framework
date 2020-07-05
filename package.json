@@ -4,6 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "cypress:open": "./node_modules/.bin/cypress open",
+    "cypress:run": "./node_modules/.bin/cypress run",
+    "cypress:report:chrome": "node cypress_runner -b chrome",
+    "cypress:report:electron": "node cypress_runner -b electron",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

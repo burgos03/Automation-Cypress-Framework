@@ -18,4 +18,34 @@
 module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
+  try{
+    on('task', {
+      fsCreateDir ({dir}) {
+        if (!fs.existsSync(dir)){
+          fs.mkdirSync(dir);
+        }
+
+        return null
+      },
+
+      fsWriteFile ({filename, data}) {
+        // 'w' - Open file for writing. The file is created (if it does not exist) or truncated (if it exists).
+        fs.writeFile(filename, data, { flag: 'w' }, function (err) {
+          if (err) throw err;
+        });
+
+        return null
+      },
+
+      fsAppendFile ({filename, data}) {
+        fs.appendFile(filename, data + '\n', (err) => {
+          if (err) throw err;
+        });
+  
+        return null
+      }
+    })
+  } catch (error) {
+    console.error(error)
+  }
 }
