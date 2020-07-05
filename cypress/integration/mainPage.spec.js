@@ -51,7 +51,7 @@ describe('Test cases main page', () => {
             .verifyDressesMenuItemDisplayed('Summer Dresses')
     });
 
-    it.only('AP-31: Verify that when you click on the "CASUAL DRESSES" button you go to the Casual Dresses page', () => {
+    it('AP-31: Verify that when you click on the "CASUAL DRESSES" button you go to the Casual Dresses page', () => {
         HomePage
             .visit()
             .headerComponent
@@ -59,6 +59,28 @@ describe('Test cases main page', () => {
             .clickCasualDresses()
 
             .casualDressesPage
+            .verifyTitle();            
+    });
+
+    it('AP-32: Verify that when the "EVENING DRESSES" button is clicked it will go to the Evening Dresses page', () => {
+        HomePage
+            .visit()
+            .headerComponent
+            .displayDressesMenu()
+            .clickEveningDresses()
+
+            .eveningDressesPage
+            .verifyTitle();
+    });
+
+    it.only('AP-33: Verify that when you click on the "SUMMER DRESSES" button you go to the Summer Dresses page', () => {
+        HomePage
+            .visit()
+            .headerComponent
+            .displayDressesMenu()
+            .clickSummerDresses()
+
+            .summerDressesPage
             .verifyTitle();            
     });
 });

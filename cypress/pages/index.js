@@ -4,3 +4,5 @@ export { default as ContactUsPage } from './contactUs.page';
 export { default as AuthenticationPage } from './authentication.page';
 export { default as WomenPage } from './women.page';
 export { default as CasualDressesPage } from './casualDresses.page';
+export { default as EveningDressesPage } from './eveningDresses.page';
+export { default as SummerDressesPage } from './summerDresses.page';

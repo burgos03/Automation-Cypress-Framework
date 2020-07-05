@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-import { HomePage, ContactUsPage, AuthenticationPage, WomenPage, CasualDressesPage } from "../pages";
+import { HomePage, ContactUsPage, AuthenticationPage, WomenPage, CasualDressesPage, EveningDressesPage, SummerDressesPage } from "../pages";
 import { BaseComponent } from ".";
 import { Logger } from "../utils";
 
@@ -57,6 +57,18 @@ export default class HeaderComponent extends BaseComponent {
         this.find(this._dressesButton + "> ul  >li:nth-child(1)").click();
         return new GoTo();
     }
+
+    clickEveningDresses(){
+        Logger.instance.addStep(`Click on [Evening Dresses] in [Dresses] menu.`);
+        this.find(this._dressesButton + "> ul  >li:nth-child(2)").click();
+        return new GoTo();
+    }
+
+    clickSummerDresses(){
+        Logger.instance.addStep(`Click on [Summer Dresses] in [Dresses] menu.`);
+        this.find(this._dressesButton + "> ul  >li:nth-child(3)").click();
+        return new GoTo();
+    }
 }
 
 class GoTo{
@@ -78,5 +90,13 @@ class GoTo{
 
     get casualDressesPage(){
         return new CasualDressesPage();
+    }
+
+    get eveningDressesPage(){
+        return new EveningDressesPage();
+    }
+
+    get summerDressesPage(){
+        return new SummerDressesPage();
     }
 }
