@@ -1,10 +1,13 @@
 import { HeaderComponent } from "../components";
+import { Logger } from "../utils";
 
 export default class BasePage {
     constructor(title, url) {
         this._titleLocator = ".page-heading";    
         this._title = title;
         this._url = url;
+
+        Logger.instance.addStep(`Page [${title}] created.`)
     }
 
     get headerComponent () {
