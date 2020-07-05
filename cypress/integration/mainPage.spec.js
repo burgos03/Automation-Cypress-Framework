@@ -39,5 +39,26 @@ describe('Test cases main page', () => {
 
             .womenPage
             .verifyTitle();
-    });    
+    }); 
+    
+    it('AP-30: Verify that when the cursor is over the "DRESSES" button, the Dresses type bar will be displayed (CASUAL DRESSES, EVENING DRESSES, SUMER DRESSES)', () => {
+        HomePage
+            .visit()
+            .headerComponent
+            .displayDressesMenu()
+            .verifyDressesMenuItemDisplayed('Casual Dresses')
+            .verifyDressesMenuItemDisplayed('Evening Dresses')
+            .verifyDressesMenuItemDisplayed('Summer Dresses')
+    });
+
+    it.only('AP-31: Verify that when you click on the "CASUAL DRESSES" button you go to the Casual Dresses page', () => {
+        HomePage
+            .visit()
+            .headerComponent
+            .displayDressesMenu()
+            .clickCasualDresses()
+
+            .casualDressesPage
+            .verifyTitle();            
+    });
 });
